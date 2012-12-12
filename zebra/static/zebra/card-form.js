@@ -1,6 +1,6 @@
 $(function() {
   $("#id_card_number").parents("form").submit(function() {
-  	if ( $("#id_card_number").is(":visible")) {
+    if ($("#id_card_number").is(":visible")) {
       var form = this;
       var card = {
         number:   $("#id_card_number").val(),
@@ -16,7 +16,7 @@ $(function() {
           $("#id_last_4_digits").val(response.card.last4);
           $("#id_stripe_token").val(response.id);
           form.submit();
-		  $("button[type=submit]").attr("disabled","disabled").html("Submitting...");
+          $("button[type=submit]").attr("disabled","disabled").html("Submitting...");
         } else {
           $(".payment-errors").text(response.error.message);
           $("#user_submit").attr("disabled", false);
