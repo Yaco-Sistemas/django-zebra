@@ -1,6 +1,28 @@
 <form action="" method="POST" id="payment-form">{% csrf_token %}
-    <noscript><h3>Note:&nbsp; this form requires Javascript to use.</h3></noscript>
-    <span class="payment-errors"></span>
-    {{ zebra_form.as_p }}
+    <noscript><h3>Note:&nbsp; this form requires Javascript.</h3></noscript>
+    {% for hidden in form.hidden_fields %}
+        {{ hidden }}
+    {% endfor %}
+    <p id="number">
+        <label for="id_card_number">Card number:</label>
+        {{ form.card_number }}
+        <span class="payment-errors"></class>
+    </p>
+    <p id="cvc">
+        <label for="id_card_cvv">Card CVC:</label>
+        {{ form.card_cvv }}
+        <span class="helptext">{{ form.card_cvv.help_text }}</span>
+        <span class="payment-errors"></class>
+    </p>
+    <p id="exp_month">
+        <label for="id_card_expiry_month">Card expiry month:</label>
+        {{ form.card_expiry_month }}
+        <span class="payment-errors"></class>
+    </p>
+    <p id="exp_year">
+        <label for="id_card_expiry_year">Card expiry year:</label>
+        {{ form.card_expiry_year }}
+        <span class="payment-errors"></class>
+    </p>
     <button type="submit" class="submit-button">Submit Payment</button>
 </form>
