@@ -16,18 +16,18 @@ $(function() {
           $("#id_last_4_digits").val(response.card.last4);
           $("#id_stripe_token").val(response.id);
           form.submit();
-		  $("button[type=submit]").attr("disabled","disabled").html("Submitting..")
+		  $("button[type=submit]").attr("disabled","disabled").html("Submitting...");
         } else {
           $(".payment-errors").text(response.error.message);
           $("#user_submit").attr("disabled", false);
         }
       });
-      
+
       return false;
-      
-    } 
-    
-    return true
-    
+
+    }
+
+    return true;
+
   });
 });
